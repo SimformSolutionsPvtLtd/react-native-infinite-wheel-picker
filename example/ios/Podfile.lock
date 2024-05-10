@@ -350,6 +350,10 @@ PODS:
     - React-jsi (= 0.71.16)
     - React-logger (= 0.71.16)
     - React-perflogger (= 0.71.16)
+  - RNReanimated (3.11.0):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
+    - ReactCommon/turbomodule/core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -388,6 +392,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -462,6 +467,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -501,6 +508,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 052dd488ba95f461a37c992b9e01bd4bcc59a7b6
   React-runtimeexecutor: b5abe02558421897cd9f73d4f4b6adb4bc297083
   ReactCommon: a1a263d94f02a0dc8442f341d5a11b3d7a9cd44d
+  RNReanimated: c112febb9548b8e0bcc5abddff308f69913c4270
   Yoga: e29645ec5a66fb00934fad85338742d1c247d4cb
 
 PODFILE CHECKSUM: 478d70d8227ed30518a515aaf9c379b3990251b2
