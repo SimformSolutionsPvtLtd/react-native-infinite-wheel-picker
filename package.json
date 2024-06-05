@@ -1,7 +1,7 @@
 {
   "name": "react-native-infinite-wheel-picker",
   "version": "0.0.1",
-  "description": "infinite-wheel-picker",
+  "description": "React Native component to provide infinite wheel picker selection",
   "main": "lib/index",
   "types": "lib/index.d.ts",
   "contributors": [],
@@ -24,7 +24,7 @@
   "scripts": {
     "prepare": "husky install && yarn build",
     "clean": "rm -rf node_modules",
-    "build": "rm -rf lib && tsc -p . && cp -R ./src/assets ./lib/ ",
+    "build": "rm -rf lib && tsc -p .",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' -c .eslintrc --fix ",
     "build:local": "yarn build && yarn pack",
@@ -98,6 +98,6 @@
     ]
   },
   "dependencies": {
-    "react-native-reanimated": "^3.11.0"
+    "react-native-reanimated": "^3.14.0"
   }
 }

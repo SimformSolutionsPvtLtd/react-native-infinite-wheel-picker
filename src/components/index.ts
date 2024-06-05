@@ -1,1 +1,2 @@
-export * from './Wheel-Picker';
+export * from './WheelPicker';
+export * from './WheelPickerItem';
