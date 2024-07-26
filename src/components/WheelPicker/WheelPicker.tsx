@@ -4,7 +4,7 @@ import Constants from '../../constants';
 import { useWheelPicker } from '../../hooks';
 import WheelPickerElement from './WheelPickerElement';
 import styles from './WheelPickerStyles';
-import type { WheelPickerProps, WheelPickerRef } from './types';
+import type { WheelPickerProps, WheelPickerRef } from './WheelPickerTypes';
 
 export const wheelPickerRef = React.createRef<WheelPickerRef>();
 

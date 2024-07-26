@@ -183,9 +183,12 @@ const useWheelPicker = ({
   useEffect(() => {
     let count = 0;
     if (count === 0) {
+      const infiniteDataIndex = data.findIndex(
+        item => item === arrayData[initialScrollIndex]
+      );
       const originalIndex = !infiniteScroll
         ? selectedIndex ?? 0
-        : data.findIndex(item => item === arrayData[initialScrollIndex]);
+        : infiniteDataIndex;
       const originalValue = !infiniteScroll
         ? data[selectedIndex ?? 0]?.toString()
         : arrayData[initialScrollIndex]?.toString();

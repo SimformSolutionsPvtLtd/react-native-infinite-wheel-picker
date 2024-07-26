@@ -28,14 +28,14 @@ const useThrowPropsError = ({
   useEffect(() => {
     if (selectedIndex < 0 || selectedIndex >= arrayData.length) {
       throw new Error(
-        `Selected index ${selectedIndex} is out of bounds. Index is between [0, ${
+        `Selected index ${selectedIndex} is out of bounds. Index should be in between [0, ${
           arrayData.length - 1
         }]`
       );
     }
     if (restElements && (restElements < 1 || restElements > 6)) {
       throw new Error(
-        `Rest elements ${restElements} is out of bounds. Rest elements is between [1, 6]`
+        `Rest elements ${restElements} is out of bounds. Rest elements should be in between [1, 6]`
       );
     }
     if (
@@ -44,7 +44,7 @@ const useThrowPropsError = ({
       typeof decelerationRate !== 'number'
     ) {
       throw new Error(
-        `Deceleration rate ${decelerationRate} is invalid. Deceleration rate is either 'normal', 'fast' or a number`
+        `Deceleration rate ${decelerationRate} is invalid. Deceleration rate should be either 'normal', 'fast' or a number`
       );
     }
     if (loopCount && loopCount < 1) {

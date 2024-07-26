@@ -3,7 +3,7 @@ import { Animated, Text } from 'react-native';
 import Constants from '../../constants';
 import { useWheelPickerElement } from '../../hooks';
 import styles from './WheelPickerStyles';
-import type { WheelPickerElementProps } from './types';
+import type { WheelPickerElementProps } from './WheelPickerTypes';
 
 /**
  * The wheel picker element component
