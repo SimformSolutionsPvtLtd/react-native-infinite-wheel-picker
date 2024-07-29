@@ -36,6 +36,7 @@ export type Range<F extends number, T extends number> = Exclude<
  * @property {StyleProp<TextStyle>} elementTextStyle - The style of the element text
  * @property {StyleProp<ViewStyle>} elementContainerStyle - The style of the element container
  * @property {Animated.AnimatedAddition<string | number>} currentScrollIndex - The current scroll index
+ * @property {number} initialSelectedIndex - The initial selected index
  */
 export interface WheelPickerProps
   extends Pick<
@@ -55,6 +56,7 @@ export interface WheelPickerProps
   flatListProps?: Omit<FlatListProps<string | null>, 'data' | 'renderItem'>;
   loopCount?: number;
   infiniteScroll?: boolean;
+  initialSelectedIndex?: number;
 }
 
 /**

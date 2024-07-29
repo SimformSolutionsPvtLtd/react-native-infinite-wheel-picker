@@ -20,6 +20,7 @@ const useThrowPropsError = ({
   decelerationRate,
   data,
   elementHeight,
+  initialSelectedIndex,
 }: ThrowPropsError) => {
   /**
    * Check if the selected index is out of bounds
@@ -30,6 +31,16 @@ const useThrowPropsError = ({
       throw new Error(
         `Selected index ${selectedIndex} is out of bounds. Index should be in between [0, ${
           arrayData.length - 1
+        }]`
+      );
+    }
+    if (
+      initialSelectedIndex &&
+      (initialSelectedIndex < 0 || initialSelectedIndex >= data.length)
+    ) {
+      throw new Error(
+        `Initial selected index ${initialSelectedIndex} is out of bounds. Index should be in between [0, ${
+          data.length - 1
         }]`
       );
     }
@@ -77,6 +88,7 @@ const useThrowPropsError = ({
     decelerationRate,
     data,
     elementHeight,
+    initialSelectedIndex,
   ]);
 };
 

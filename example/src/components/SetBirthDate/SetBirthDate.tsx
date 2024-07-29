@@ -25,6 +25,7 @@ const SetBirthDate: React.FC = () => {
         <WheelPicker
           restElements={3}
           data={StaticData.monthsArray}
+          initialSelectedIndex={0}
           selectedIndex={month?.index ?? 0}
           onChangeValue={(index, value) => {
             console.log('Month onChange: ', index, value);
@@ -38,6 +39,7 @@ const SetBirthDate: React.FC = () => {
         <WheelPicker
           restElements={3}
           data={StaticData.datesArray}
+          initialSelectedIndex={0}
           selectedIndex={date?.index ?? 0}
           onChangeValue={(index, value) => {
             console.log('Date onChange: ', index, value);
@@ -50,6 +52,7 @@ const SetBirthDate: React.FC = () => {
         <WheelPicker
           restElements={3}
           data={StaticData.yearsArray}
+          initialSelectedIndex={0}
           selectedIndex={year?.index ?? 0}
           onChangeValue={(index, value) => {
             console.log('onChange: ', index, value);

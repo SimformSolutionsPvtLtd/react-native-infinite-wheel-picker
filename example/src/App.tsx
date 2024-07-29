@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../../src/theme';
 import { GlobalTimePicker, SetBirthDate, TimePicker } from './components';
+import { globalMetrics } from './theme';
 
 const App: React.FC = () => {
   return (
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomLeftRadius: 12,
     borderBottomRightRadius: 12,
-    paddingTop: 56,
+    paddingTop: globalMetrics.isAndroid ? 0 : 56,
   },
   headerText: { fontSize: 16, fontWeight: '700', color: Colors.black },
 });

@@ -41,6 +41,7 @@ const WheelPicker = forwardRef<WheelPickerRef, WheelPickerProps>(
       containerProps = {},
       flatListProps = {},
       infiniteScroll = true,
+      initialSelectedIndex = 0,
     },
     ref
   ) => {
@@ -63,6 +64,7 @@ const WheelPicker = forwardRef<WheelPickerRef, WheelPickerProps>(
       decelerationRate,
       elementHeight,
       infiniteScroll,
+      initialSelectedIndex,
     });
 
     useImperativeHandle(ref ?? wheelPickerRef, () => ({
