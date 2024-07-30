@@ -1,35 +1,33 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { StaticData } from './constants';
-import { WheelPicker } from 'react-native-infinite-wheel-picker';
-import { scale } from './theme';
+import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import { SetBirthDate, SetMeeting, Variations } from './components';
 
 const App: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <WheelPicker
-        height={50}
-        data={StaticData.weekData}
-        itemDisplayInList={3}
-        infiniteScroll={true}
-        selectedValue={4}
-        textStyle={styles.textStyle}
-        onValueChange={value => console.log('selected value____', value)}
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView
+        bounces={false}
+        style={styles.scrollView}
+        contentContainerStyle={styles.contentContainerStyle}>
+        <SetMeeting />
+        <SetBirthDate />
+        <Variations />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    backgroundColor: '#ffff',
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#fff',
   },
-  textStyle: {
-    fontSize: scale(22),
-    color: 'black',
+  scrollView: {
+    padding: 10,
+  },
+  contentContainerStyle: {
+    paddingVertical: 20,
   },
 });
+
 export default App;
