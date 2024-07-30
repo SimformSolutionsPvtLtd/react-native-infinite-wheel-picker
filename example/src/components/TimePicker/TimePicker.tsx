@@ -35,6 +35,7 @@ const TimePicker: React.FC = () => {
         <WheelPicker
           restElements={2}
           data={StaticData.hourArray}
+          initialSelectedIndex={StaticData.hourArray.indexOf(moment().format('hh'))}
           selectedIndex={hour.index ?? 0}
           onChangeValue={(index, value) => {
             console.log('Hours onChange: ', index, value);
@@ -48,6 +49,7 @@ const TimePicker: React.FC = () => {
         <WheelPicker
           restElements={2}
           data={StaticData.minutesArray}
+          initialSelectedIndex={StaticData.minutesArray.indexOf(moment().format('mm'))}
           selectedIndex={minute.index ?? 0}
           onChangeValue={(index, value) => {
             console.log('Minutes onChange: ', index, value);
@@ -61,6 +63,7 @@ const TimePicker: React.FC = () => {
         <WheelPicker
           restElements={2}
           data={StaticData.meridiemArray}
+          initialSelectedIndex={StaticData.meridiemArray.indexOf(moment().format('A'))}
           selectedIndex={meridiem.index ?? 0}
           onChangeValue={(index, value) => {
             console.log('Meridiem onChange: ', index, value);

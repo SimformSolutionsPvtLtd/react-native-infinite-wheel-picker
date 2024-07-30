@@ -18,6 +18,7 @@ export interface ThrowPropsError
     | 'decelerationRate'
     | 'elementHeight'
     | 'data'
+    | 'initialSelectedIndex'
   > {
   arrayData: Array<string | number>;
 }

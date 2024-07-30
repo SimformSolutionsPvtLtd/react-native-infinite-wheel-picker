@@ -28,6 +28,7 @@ const useWheelPicker = ({
   decelerationRate,
   loopCount,
   infiniteScroll,
+  initialSelectedIndex,
 }: Required<
   Pick<
     WheelPickerProps,
@@ -39,6 +40,7 @@ const useWheelPicker = ({
     | 'decelerationRate'
     | 'elementHeight'
     | 'infiniteScroll'
+    | 'initialSelectedIndex'
   >
 >) => {
   /**
@@ -73,6 +75,7 @@ const useWheelPicker = ({
     decelerationRate,
     data,
     elementHeight,
+    initialSelectedIndex,
   });
 
   /**
@@ -173,9 +176,9 @@ const useWheelPicker = ({
    */
   const initialScrollIndex = useMemo(() => {
     return !infiniteScroll
-      ? selectedIndex ?? 0
-      : arrayData?.length / 2 + selectedIndex;
-  }, [arrayData, selectedIndex, infiniteScroll]);
+      ? initialSelectedIndex ?? 0
+      : arrayData?.length / 2 + initialSelectedIndex;
+  }, [arrayData, initialSelectedIndex, infiniteScroll]);
 
   /**
    * Set the initial selected value
@@ -190,13 +193,13 @@ const useWheelPicker = ({
         ? selectedIndex ?? 0
         : infiniteDataIndex;
       const originalValue = !infiniteScroll
-        ? data[selectedIndex ?? 0]?.toString()
+        ? data[initialSelectedIndex ?? 0]?.toString()
         : arrayData[initialScrollIndex]?.toString();
       onChangeValue(originalIndex ?? 0, originalValue ?? '');
       count++;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialScrollIndex, infiniteScroll, selectedIndex]);
+  }, [initialScrollIndex, infiniteScroll, initialSelectedIndex]);
 
   return {
     currentScrollIndex,

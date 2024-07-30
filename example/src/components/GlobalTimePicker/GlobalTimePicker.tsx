@@ -13,7 +13,8 @@ const GlobalTimePicker = () => {
         <WheelPicker
           restElements={1}
           data={StaticData.hour24Array}
-          selectedIndex={15 ?? 0}
+          initialSelectedIndex={15 ?? 0}
+          selectedIndex={0 ?? 0}
           onChangeValue={(index, value) => {
             console.log('Hours onChange: ', index, value);
           }}
@@ -29,6 +30,9 @@ const GlobalTimePicker = () => {
         <WheelPicker
           restElements={1}
           data={StaticData.minutesArray}
+          initialSelectedIndex={
+            StaticData.minutesArray.indexOf(moment().format('mm')) ?? 0
+          }
           selectedIndex={
             StaticData.minutesArray.indexOf(moment().format('mm')) ?? 0
           }
