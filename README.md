@@ -63,9 +63,9 @@ const App: React.FC = () => {
         data={initialData}
         restElements={2}
         elementHeight={30}
-        onChangeValue={value => {
+        onChangeValue={(index, value) => {
           console.log(value);
-          setSelectedIndex(value);
+          setSelectedIndex(index);
         }}
         selectedIndex={selectedIndex}
         containerStyle={styles.containerStyle}
