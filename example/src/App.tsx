@@ -1,33 +1,49 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
-import { SetBirthDate, SetMeeting, Variations } from './components';
+import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Colors } from '../../src/theme';
+import { GlobalTimePicker, SetBirthDate, TimePicker } from './components';
 
 const App: React.FC = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <StatusBar backgroundColor={Colors.white} />
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>infinite-wheel-picker</Text>
+      </View>
       <ScrollView
         bounces={false}
         style={styles.scrollView}
         contentContainerStyle={styles.contentContainerStyle}>
-        <SetMeeting />
         <SetBirthDate />
-        <Variations />
+        <TimePicker />
+        <GlobalTimePicker />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#EE5366',
   },
   scrollView: {
-    padding: 10,
+    padding: 5,
   },
   contentContainerStyle: {
-    paddingVertical: 20,
+    paddingVertical: 5,
+    paddingHorizontal: 20,
+    paddingBottom: 50,
   },
+  headerContainer: {
+    backgroundColor: Colors.white,
+    padding: 10,
+    alignItems: 'center',
+    borderBottomLeftRadius: 12,
+    borderBottomRightRadius: 12,
+    paddingTop: 56,
+  },
+  headerText: { fontSize: 16, fontWeight: '700', color: Colors.black },
 });
 
 export default App;

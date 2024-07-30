@@ -1,73 +1,72 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { WheelPicker } from 'react-native-infinite-wheel-picker';
 import { StaticData } from '../../constants';
 import styles from './SetBirthDateStyles';
 
-const SetBirthDate: React.FC = () => (
-  <View style={styles.datePickerContainer}>
-    <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>Birthday</Text>
-    </View>
-    <View style={styles.datePickerWheelContainer}>
-      <View style={styles.wheelContainer}>
-        <WheelPicker
-          data={StaticData.monthsArray}
-          surroundingItemsCount={2}
-          itemHeight={40}
-          infinite={true}
-          itemStyle={styles.itemStyle}
-          onValueChange={value => {
-            console.log('value', value);
-          }}
-          selectedItemContainerStyle={styles.selectedItemContainerStyle}
-          selectedItemStyle={styles.selectedItemStyle}
-          itemsAngle={[30, 50]}
-          itemsOpacity={[0.5, 0.3]}
-          wheelPickerContainerStyle={styles.containerStyle}
-        />
-      </View>
-      <View>
-        <WheelPicker
-          initialSelectedItem={26}
-          data={StaticData.datesArray}
-          surroundingItemsCount={2}
-          itemHeight={40}
-          infinite={true}
-          itemStyle={styles.itemStyle}
-          onValueChange={value => {
-            console.log('value', value);
-          }}
-          selectedItemContainerStyle={styles.selectedItemContainerStyle}
-          selectedItemStyle={styles.selectedItemStyle}
-          itemsAngle={[30, 50]}
-          itemsOpacity={[0.5, 0.3]}
-          wheelPickerContainerStyle={styles.containerStyle}
-        />
-      </View>
+const SetBirthDate: React.FC = () => {
+  const [month, setMonth] = React.useState({
+    index: 0,
+    value: StaticData.monthsArray[0],
+  });
+  const [date, setDate] = React.useState({
+    index: 0,
+    value: StaticData.datesArray[0],
+  });
+  const [year, setYear] = React.useState({
+    index: 0,
+    value: StaticData.yearsArray[0],
+  });
 
-      <View style={styles.wheelContainer}>
+  return (
+    <View style={styles.container}>
+      <Text style={styles.headerText}>Birthday</Text>
+      <View style={styles.wheelPickerContainer}>
         <WheelPicker
-          data={StaticData.yearsArray}
-          surroundingItemsCount={2}
-          itemHeight={40}
-          infinite={true}
-          itemStyle={styles.itemStyle}
-          onValueChange={value => {
-            console.log('value', value);
+          restElements={3}
+          data={StaticData.monthsArray}
+          selectedIndex={month?.index ?? 0}
+          onChangeValue={(index, value) => {
+            console.log('Month onChange: ', index, value);
+            setMonth({ index, value: value });
           }}
-          selectedItemContainerStyle={styles.selectedItemContainerStyle}
-          selectedItemStyle={styles.selectedItemStyle}
-          itemsAngle={[30, 50]}
-          itemsOpacity={[0.5, 0.3]}
-          wheelPickerContainerStyle={styles.containerStyle}
+          elementHeight={30}
+          containerStyle={styles.containerStyle}
+          selectedLayoutStyle={styles.monthSelectedLayoutStyle}
+          elementTextStyle={styles.elementTextStyle}
+        />
+        <WheelPicker
+          restElements={3}
+          data={StaticData.datesArray}
+          selectedIndex={date?.index ?? 0}
+          onChangeValue={(index, value) => {
+            console.log('Date onChange: ', index, value);
+            setDate({ index, value: parseInt(value) });
+          }}
+          selectedLayoutStyle={styles.minutesSelectedLayoutStyle}
+          elementHeight={30}
+          elementTextStyle={styles.elementTextStyle}
+        />
+        <WheelPicker
+          restElements={3}
+          data={StaticData.yearsArray}
+          selectedIndex={year?.index ?? 0}
+          onChangeValue={(index, value) => {
+            console.log('onChange: ', index, value);
+            setYear({ index, value: parseInt(value) });
+          }}
+          containerStyle={styles.containerStyle}
+          selectedLayoutStyle={styles.yearSelectedLayoutPicker}
+          elementHeight={30}
+          elementTextStyle={styles.elementTextStyle}
         />
       </View>
+      <Text
+        style={
+          styles.selectedDateText
+        }>{`Date: ${date.value}, ${month.value} ${year.value}`}</Text>
     </View>
-    <TouchableOpacity activeOpacity={0.7} style={styles.datePickerBtnContainer}>
-      <Text style={styles.confirmText}>Confirm</Text>
-    </TouchableOpacity>
-  </View>
-);
+  );
+};
 
 export default SetBirthDate;
