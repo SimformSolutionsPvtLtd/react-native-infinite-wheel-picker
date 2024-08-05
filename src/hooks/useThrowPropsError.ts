@@ -58,9 +58,9 @@ const useThrowPropsError = ({
         `Deceleration rate ${decelerationRate} is invalid. Deceleration rate should be either 'normal', 'fast' or a number`
       );
     }
-    if (loopCount && loopCount < 1) {
+    if (loopCount && loopCount < 30) {
       throw new Error(
-        `Loop count ${loopCount} is invalid. Loop count must be greater than 1.`
+        `Loop count ${loopCount} is invalid. Loop count must be greater than 30.`
       );
     }
     if (!Array.isArray(data)) {

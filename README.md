@@ -144,7 +144,7 @@ For, a simple scroll use `infiniteScroll={false}` that disable infinite scrollin
 | initialSelectedIndex |    0    | number or string | The item that should be pre-selected in the picker |
 | infiniteScroll |    true    |         boolean          | A boolean that enables or disables infinite scrolling of the items |
 | restElements |    2    |       number        | The number of items to show above and below the selected item in the picker |
-| loopCount |    100    |       number        | The number of array to repeat data in the picker |
+| loopCount |    100    |       number        | The number of times data array is repeated in picker |
 | decelerationRate |    `'fast'`   |       `'normal', 'fast', 'number`        | Determines how quickly the scroll decelerates after the user lifts their finger in the picker |
 | elementHeight |   40    | number | The height of each item in the picker, in pixels |
 | elementTextStyle  |  -   |  `StyleProp<TextStyle>`  | Style applied to the text of each item in the picker |
