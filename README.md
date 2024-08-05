@@ -145,7 +145,7 @@ For, a simple scroll use `infiniteScroll={false}` that disable infinite scrollin
 | infiniteScroll |    true    |         boolean          | A boolean that enables or disables infinite scrolling of the items |
 | restElements |    2    |       number        | The number of items to show above and below the selected item in the picker |
 | loopCount |    100    |       number        | The number of array to repeat data in the picker |
-| decelerationRate |    `'fast'`   |       `'normal', 'fast', 'number`        | The determines how quickly the scroll decelerates after the user lifts their finger in the picker |
+| decelerationRate |    `'fast'`   |       `'normal', 'fast', 'number`        | Determines how quickly the scroll decelerates after the user lifts their finger in the picker |
 | elementHeight |   40    | number | The height of each item in the picker, in pixels |
 | elementTextStyle  |  -   |  `StyleProp<TextStyle>`  | Style applied to the text of each item in the picker |
 | elementContainerStyle  |  -   |  `StyleProp<ViewStyle>`  | Style applied to the container of each item in the picker |
@@ -156,7 +156,7 @@ For, a simple scroll use `infiniteScroll={false}` that disable infinite scrollin
 
 ##### Know more about [ViewProps](https://reactnative.dev/docs/view#props), [ViewStyle](https://reactnative.dev/docs/view-style-props), [FlatListProps](https://reactnative.dev/docs/flatlist#props), [TextStyle](https://reactnative.dev/docs/text-style-props#props), [decelerationRate](https://reactnative.dev/docs/scrollview#decelerationrate)
 
-> Note: If any prop changing manually then recommended to reload the app to see the changes in component.
+> Note: In case of a manual prop change, make sure to reload the application to see the changes in the component.
 
 #### WheelPickerRef Methods
 
