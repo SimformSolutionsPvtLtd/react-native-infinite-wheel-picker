@@ -89,10 +89,10 @@ const useWheelPicker = ({
     const array: (string | null | number)[] = [...arrayData];
     for (let i = 0; i < restElements; i++) {
       array.unshift(null);
-      array.push(null);
+      !infiniteScroll && array.push(null); // Add null values to the end of the list if infiniteScroll is false
     }
     return array;
-  }, [restElements, arrayData]);
+  }, [restElements, arrayData, infiniteScroll]);
 
   /**
    * Calculate the offsets for each item in the list
@@ -139,9 +139,7 @@ const useWheelPicker = ({
       if (value) {
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
-          const originalIndex = data.findIndex(
-            item => item === arrayData[index]
-          );
+          const originalIndex = index % data.length; // Get the original index from the looped data
           onChangeValue(originalIndex, value.toString());
         }, 100);
       }
@@ -163,7 +161,7 @@ const useWheelPicker = ({
         layoutMeasurement.height + contentOffset.y + elementHeight >=
         contentSize.height - detectFromItem;
       if (isNearToEnd && infiniteScroll) {
-        setArrayData([...arrayData, 1]);
+        setArrayData([...arrayData, ...arrayData]);
       }
     },
     [arrayData, data, elementHeight, infiniteScroll]
@@ -186,9 +184,7 @@ const useWheelPicker = ({
   useEffect(() => {
     let count = 0;
     if (count === 0) {
-      const infiniteDataIndex = data.findIndex(
-        item => item === arrayData[initialScrollIndex]
-      );
+      const infiniteDataIndex = initialScrollIndex % data.length; // Get the original index from the looped data
       const originalIndex = !infiniteScroll
         ? selectedIndex ?? 0
         : infiniteDataIndex;
