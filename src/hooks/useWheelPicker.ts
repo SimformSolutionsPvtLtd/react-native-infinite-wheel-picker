@@ -60,8 +60,15 @@ const useWheelPicker = ({
   const [arrayData, setArrayData] = useState<Array<string | number>>([
     ...loopedData,
   ]);
+  const initialIndex = useMemo(
+    () =>
+      !infiniteScroll
+        ? initialSelectedIndex ?? 0
+        : loopedData.length / 2 + initialSelectedIndex,
+    [infiniteScroll, initialSelectedIndex, loopedData.length]
+  );
   const flatListRef = useRef<FlatList<string | null>>(null);
-  const [scrollY] = useState(new Animated.Value(0));
+  const scrollY = useRef(new Animated.Value(initialIndex * elementHeight)).current;
 
   /**
    * Verify if the props are valid or not
